@@ -21,7 +21,7 @@ var dataStore = {
 $(document).ready(function() {
 
 	//support timestamps in the future
-	jQuery.timeago.settings.allowFuture = true; 
+	$.timeago.settings.allowFuture = true; 
 
 	var generateTwid = function(passed) {
 		//if username not passed, then generate random tweets 
@@ -42,13 +42,12 @@ $(document).ready(function() {
 		//access to each username and tweet 
 		//create DOM for username, date, and message
 		//append them to element and prepend it to .tweets
-		var date = obj['created_at'].toISOString();
+		var date = obj.created_at.toISOString();
 
 		var $twid = $('<div/>', {'class': 'twid'});
-		var $username = $('<span/>', {'class': 'username', 'data-username' : obj['user'], text : '@' + obj['user'] + ' '});
+		var $username = $('<span/>', {'class': 'twidUsername', 'data-username': obj['user'], text: '@' + obj['user'] + ' '});
 		var $date = $('<abbr/>', {'class': 'date timeago', 'title': date});
-		var $message = $('<div/>', {'class' : 'message', text: obj['message']});
-
+		var $message = $('<div/>', {'class': 'twidMessage', text: obj['message']});
 		$twid.append($username);
 		$twid.append($date);
 		$twid.append($message);
