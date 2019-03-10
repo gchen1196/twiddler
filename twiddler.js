@@ -45,7 +45,9 @@ $(document).ready(function() {
 		var date = obj.created_at.toISOString();
 
 		var $twid = $('<div/>', {'class': 'twid'});
-		var $username = $('<span/>', {'class': 'twidUsername', 'data-username': obj['user'], text: '@' + obj['user'] + ' '});
+		var $username = $('<span/>', {'class': 'twidUsername'})
+		var $usernameA = $('<a/>', {'href': '#', 'class': 'twidUsernameA', 'data-username': obj['user'], text: '@' + obj['user'] + ' '});
+		$username.append($usernameA);
 		var $date = $('<abbr/>', {'class': 'date timeago', 'title': date});
 		var $message = $('<div/>', {'class': 'twidMessage', text: obj['message']});
 		$twid.append($username);
@@ -58,5 +60,15 @@ $(document).ready(function() {
 	}
 
 	generateTwid(dataStore['user']['name']);
+
+	//refresh tweet when button clicked
+	$('.update').click(function() {
+		generateTwid(dataStore['user']['name']);
+		return false;
+	})
+
+	//when you click on a username 
+	//hide .user, .post, only show username's tweets 
+
 
 })
