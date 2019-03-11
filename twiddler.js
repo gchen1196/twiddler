@@ -69,6 +69,14 @@ $(document).ready(function() {
 
 	//when you click on a username 
 	//hide .user, .post, only show username's tweets 
-
+	$('.twidUsernameA').click(function(event) {
+		dataStore['user']['name'] = $(this).data('username');
+		dataStore['user']['index'] = 0;
+		$('.user').hide();
+		$('.feed').find('.twids').text('');
+		$('.profile').text('@' + dataStore['user']['name'] + '\'s Profile');
+		$('.profile').show();
+		generateTwid(dataStore['user']['name']);
+	})
 
 })
