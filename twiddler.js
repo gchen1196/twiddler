@@ -80,14 +80,15 @@ $(document).ready(function() {
 
 	//making a post and then get the value of the post as username and message
 	$('.submit').click(function(e){
-		e.preventDefault();
 		var userMessage = $('.type').val();
 		var userName = $('.myusername').val();
 		writeTweet(userName, userMessage);
 		dataStore['user']['name'] = false;
 		dataStore['user']['index'] = 0;
 		generateTwid(dataStore['user']['name']);
-		postTwid(userTwid);
+
+		$('.post').trigger('reset');
+		return false; 
 
 	})
 
