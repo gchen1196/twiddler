@@ -72,7 +72,7 @@ $(document).ready(function() {
 		dataStore['user']['name'] = $(this).data('username');
 		dataStore['user']['index'] = 0;
 		$('.feed').find('.twids').text('');
-		$('.profile').text('@' + dataStore['user']['name'] + '\'s Profile');
+		$('.profile').text('@' + dataStore['user']['name'] + '\'s Twids');
 		$('.profile').show();
 		generateTwid(dataStore['user']['name']);
 
