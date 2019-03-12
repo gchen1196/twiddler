@@ -64,7 +64,6 @@ $(document).ready(function() {
 	//refresh tweet when button clicked
 	$('.update').click(function() {
 		generateTwid(dataStore['user']['name']);
-		return false;
 	})
 
 	//when you click on a username 
@@ -76,6 +75,9 @@ $(document).ready(function() {
 		$('.profile').text('@' + dataStore['user']['name'] + '\'s Profile');
 		$('.profile').show();
 		generateTwid(dataStore['user']['name']);
+
+		$('.post').hide();
+		$('.button-feed').hide();
 	})
 
 	//making a post and then get the value of the post as username and message
@@ -89,7 +91,6 @@ $(document).ready(function() {
 
 		$('.post').trigger('reset');
 		return false; 
-
 	})
 
 })
